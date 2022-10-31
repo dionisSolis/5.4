@@ -1,0 +1,32 @@
+using System;
+using System.Globalization;
+
+namespace qwerty
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int digit = 0;
+            bool isDigit = false;
+
+            Console.Write("Введите число: ");
+            isDigit = int.TryParse(Console.ReadLine(), out digit);
+
+            while (!isDigit)
+            {
+                Console.Write("Введите корректное число: ");
+                isDigit = int.TryParse(Console.ReadLine(), out digit);
+            }
+
+            makeSquare(ref digit);
+
+            Console.WriteLine($"\nКвадрат числа: {digit}");
+        }
+
+        static void makeSquare(ref int digit)
+        {
+            digit = digit * digit;
+        }
+    }
+}
