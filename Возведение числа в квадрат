@@ -8,9 +8,17 @@ namespace qwerty
         static void Main(string[] args)
         {
             int digit = 0;
-            bool isDigit = false;
 
             Console.Write("Введите число: ");
+            CheckInt(ref digit);
+            digit = MakeSquare(digit);
+            Console.WriteLine($"\nКвадрат числа: {digit}");
+        }
+        
+        static void CheckInt(ref int digit)
+        {
+            bool isDigit;
+
             isDigit = int.TryParse(Console.ReadLine(), out digit);
 
             while (!isDigit)
@@ -18,15 +26,12 @@ namespace qwerty
                 Console.Write("Введите корректное число: ");
                 isDigit = int.TryParse(Console.ReadLine(), out digit);
             }
-
-            makeSquare(ref digit);
-
-            Console.WriteLine($"\nКвадрат числа: {digit}");
         }
-
-        static void makeSquare(ref int digit)
+        
+        static int MakeSquare(int digit)
         {
             digit = digit * digit;
+            return digit;
         }
     }
 }
